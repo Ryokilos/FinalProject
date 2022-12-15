@@ -1,5 +1,3 @@
-package finals;
-
 import java.util.Scanner;
 // Class
 public class material {
@@ -14,7 +12,6 @@ public Boolean Availablity;
 public int Replacement;
 public Boolean R18;
 	
-
 // Creating object of Scanner class to
 // read input from users
 Scanner scan = new Scanner(System.in);
@@ -67,7 +64,6 @@ this.bookName = input.nextint();
 System.out.println("Enter Book Name if over 18:");
 this.bookName = input.nextBoolean();
 
-
 System.out.println("Enter Serial No of Magazine:");
 
 this.uniqueNo = input.nextInt();
@@ -116,6 +112,5 @@ this.dvdname = input.nextint();
 
 System.out.println("Enter dvd name if over 18:");
 this.dvdName = input.nextBoolean();
-
 
 }
