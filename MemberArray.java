@@ -1,5 +1,6 @@
 // CSC 123 Final Project
 
+import java.util.Scanner;
 public class MemberArray {
 	
 	// Creating objects of Scanner and students class
@@ -20,74 +21,97 @@ public class MemberArray {
             System.out.println(theMembers[i].firstName +"\t\t" + theMembers[i].lastName +"\t\t" + theMembers[i].birthDate + "\t\t" + theMembers[i].cityName + "\t\t" + theMembers[i].zipCode + "\t\t"+ theMembers[i].regNum);
         }
     }
-	
-	
-	// Method 2
-    // To remove Material
-    public void checkOutBook(materialArray material){
-        int memberIndex = this.isStudent();
+    
+    
+    // Method 2
+    // To check for the Member
+    public int isMember(){
+        // Display message only
+        System.out.println("Enter Registration Number:");
  
-        if (studentIndex != -1){
+        String regNum = input.nextLine();
+ 
+        for (int i = 0; i < count; i++) {
+ 
+            if (theMembers[i].regNum.equalsIgnoreCase(regNum)){
+                return i;
+            }
+        }
+ 
+        // Print statements
+        System.out.println("Member is not Registered.");
+        System.out.println("Get Registered First.");
+ 
+        return -1;
+    }
+	
+	
+	// Method 3
+    // To remove Material
+    public void checkOutMaterial(materialArray material){
+        int memberIndex = this.isMember();
+ 
+        if (memberIndex != -1){
             System.out.println("Checking out");
  
-            book.showAllBooks();
-            book b = book.checkOutBook();
+            material.showAllMaterial();
+            material b = material.checkOutMaterial();
  
             System.out.println("Checking out");
             if (b != null){
  
-                if (theMembers[studentIndex].booksCount<= 3){
+                if (theMembers[memberIndex].materialCount<= 3){
  
                     System.out.println("Adding book");
-                    theMembers[memberIndex].borrowedBooks[theMembers[memberIndex].booksCount]= b;
-                    theMembers[memberIndex].booksCount++;
+                    theMembers[memberIndex].borrowedMaterial[theMembers[memberIndex].materialCount]= b;
+                    theMembers[memberIndex].materialCount++;
  
                     return;
                 }
                 else{
  
-                    System.out.println("Member Can not Borrow more than 3 Books.");
+                    System.out.println("Member Can not Borrow more than 5 Material.");
                     return;
                 }
             }
-            System.out.println("Book is not Available.");
+            System.out.println("Material is not Available.");
         }
     }
 	
 	
 	
 	
-	// Method 3
+	// Method 4
     // To add the Book / Magazines / DVD's
-    public void checkInBook(materialArray material){
-        int memberIndex = this.isStudent();
+    public void checkInMaterial(materialArray material){
+        int memberIndex = this.isMember();
         if (memberIndex != -1){
  
-            // Printing credentials corresponding to student
+            // Printing credentials corresponding to member
             System.out.println("S.No\t\t\tBook Name\t\t\tAuthor Name");
  
             member s = theMembers[memberIndex];
  
-            for (int i = 0; i < s.booksCount; i++){
+            for (int i = 0; i < s.materialCount; i++){
  
-                System.out.println(s.borrowedBooks[i].sNo + "\t\t\t" + s.borrowedBooks[i].bookName + "\t\t\t" + s.borrowedBooks[i].authorName);
+                System.out.println(s.borrowedMaterial[i].sNo + "\t\t\t" + s.borrowedMaterial[i].bookName + "\t\t\t" + s.borrowedMaterial[i].authorName);
             }
  
             // Display message only
-            System.out.println("Enter Serial Number of Book to be Checked In:");
+            System.out.println("Enter Serial Number of Material to be Checked In:");
  
             int sNo = input.nextInt();
  
-            for (int i = 0; i < s.booksCount; i++){
-                if (sNo == s.borrowedBooks[i].sNo){
-                    book.checkInBook(s.borrowedBooks[i]);
-                    s.borrowedBooks[i] = null;
+            for (int i = 0; i < s.materialCount; i++){
+                if (sNo == s.borrowedMaterial[i].sNo){
+                    material.checkInMaterial(s.borrowedMaterial[i]);
+                    s.borrowedMaterial[i] = null;
  
                     return;
                 }
             }
  
-            System.out.println("Book of Serial No " + sNo + "not Found");
+            System.out.println("Material of Serial No " + sNo + "Not Found");
         }
     }
 	

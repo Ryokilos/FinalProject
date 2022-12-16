@@ -5,13 +5,22 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class member {
-	public static void main(String[] args) throws Exception {
-
+	String birthDate;
+	String firstName;
+	String lastName;
+	String cityName;
+	int zipCode;
+	String regNum;
+    
+	material loanedMaterial[] = new material [5];
+	public int materialCount = 0;
     //String birthDate;
     Scanner input = new Scanner(System.in);
-
+    
+	public member() throws Exception {
+		
     System.out.println("Enter Date of Birth: ");
-    String birthDate = input.next();
+    this.birthDate = input.next();
 
 
     Calendar today = Calendar.getInstance();
@@ -33,19 +42,19 @@ public class member {
       System.out.println("Continue with Membership");
 
       System.out.println("Enter First Name: ");
-      String firstName = input.next();
+      this.firstName = input.next();
 
       System.out.println("Enter Last Name: ");
-      String lastName = input.next();
+      this.lastName = input.next();
 
       System.out.println("Enter City Name: ");
-      String cityName = input.next();
+      this.cityName = input.next();
 
       System.out.println("Enter Zip Code: ");
-      int zipCode = input.nextInt();
+      this.zipCode = input.nextInt();
 
       System.out.println("Enter Registration Number: ");
-      int regNum = input.nextInt();
+      this.regNum = input.next();
  
     }
     else{
