@@ -16,7 +16,7 @@ public class materialArray {
 	    		 		  + "\t | Suitable for Children?: " + materialArray[i].r18 + "\t | Available?: " + materialArray[i].availablity);
 	    }
 	    }
-	    public int compareBookObjects(material b1, material b2) {
+	    public int compareBookObjects(material b1, material b2) throws Exception {
 	 
 	        // If book name matches
 	        if (b1.title.equalsIgnoreCase(b2.title)) {
@@ -33,7 +33,7 @@ public class materialArray {
 	    }
 	    return 1;
 	    }
-	    public void addMaterial(material b) {
+	    public void addMaterial(material b) throws Exception {
 	        for (int i = 0; i < count; i++) {
 	            if (this.compareBookObjects(b, this.materialArray[i])
 	                == 0)
@@ -49,7 +49,7 @@ public class materialArray {
 	    }
 	    } 
 	    // To create menu
-	    public void menu() {
+	    public void menu() throws Exception {
 	        // Displaying menu
 	        System.out.println("1 - New Membership");
 	        System.out.println("2 - Add Material");
@@ -62,8 +62,7 @@ public class materialArray {
 	  	  	System.out.println("Please enter your choice:");
 	    }
 	    // To search the library
-	    public int isAvailable(int uniqueNo)
-	    {
+	    public int isAvailable(int uniqueNo) throws Exception {
 	 
 	        for (int i = 0; i < count; i++) {
 	            if (uniqueNo == materialArray[i].uniqueNo) {
@@ -82,7 +81,7 @@ public class materialArray {
 	        return -1;
 	    }
 	    // To remove the book from the library
-	    public material checkOutMaterial() {
+	    public material checkOutMaterial() throws Exception {
 	        System.out.println("Enter Unique Number of Book to Check Out.");
 	        int uniqueNo = scan.nextInt();
 	        int bookIndex = isAvailable(uniqueNo);
@@ -93,7 +92,7 @@ public class materialArray {
 	        return null;
 	    }
 	    // To return materials Library
-	    public void checkInMaterial(material b) {
+	    public void checkInMaterial(material b) throws Exception {
 	        for (int i = 0; i < count; i++) {
 	            if (b.equals(materialArray[i])) {
 	            	materialArray[i].availablity = true;
