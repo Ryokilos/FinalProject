@@ -3,39 +3,38 @@ import java.util.Scanner;
 //class
 public class materialArray {
 	    // Class data members
-	    material materialArray[] = new material[999999999];
+	    material materialArray[] = new material[99999999];
 	    public static int count;
 	    Scanner scan = new Scanner(System.in);
 	    // To display all books
 	    public void showAllMaterials() {
 	     System.out.println("Showing all Materials\n");
-	     System.out.println("Unique Identifier | Title | Location Identifier | Author | ISBN | Released | Length |Suitable for Children? | Available?");
 	     for (int i = 0; i < count; i++) {
-	     System.out.println("Unique Identifier: " + materialArray[i].uniqueNo + "\t | Title: " + materialArray[i].title + "\t | Location Identifier: " + materialArray[i].locName + "." + materialArray[i].locNo
-	    		 		  + "\t | Author: " + materialArray[i].authorName + "\t | ISBN: " + materialArray[i].isbn + "\t | Released: " + materialArray[i].released + "\t | Length: " + materialArray[i].length 
-	    		 		  + "\t | Suitable for Children?: " + materialArray[i].r18 + "\t | Available?: " + materialArray[i].availablity);
+	     System.out.println("Unique Identifier: " + materialArray[i].uniqueNo + "\t | Title: " + materialArray[i].title + "\t | Location Identifier: " + materialArray[i].locName + "." + materialArray[i].locNo); 
+	     if (materialArray[i].authorName != null && materialArray[i].locName == 66 ||materialArray[i].locName == 98) System.out.print("| Author: " + materialArray[i].authorName + "\t | ISBN: " + materialArray[i].isbn); 
+	     if (materialArray[i].issueNumber != null && materialArray[i].locName == 77 ||materialArray[i].locName == 109) System.out.print("| Magzine Issue:" + materialArray[i].issueNumber);
+	     System.out.print("| Released: " + materialArray[i].released + "\t | Length: " + materialArray[i].length + "| Suitable for Children?: " + materialArray[i].r18 + "\t | Available?: " + materialArray[i].availablity);
 	    }
 	    }
-	    public int compareBookObjects(material b1, material b2) throws Exception {
-	 
-	        // If book name matches
-	        if (b1.title.equalsIgnoreCase(b2.title)) {
-	            // Printing book exists
-	            System.out.println(
-	                "Book of this Name Already Exists.");
-	            return 0;
+	    public int compareMaterialObjects(material b1, material b2) throws Exception {
+	        //If matches
+	    if (b1.title.equalsIgnoreCase(b2.title)) {
+	        //depreciated
+	        System.out.println("Material of this type already exists within the system.");
+	       return 0;
 	        }
-	    // if book serial matches
-	    if (b1.uniqueNo == b2.uniqueNo) {
-	    // Print book exists
-	    System.out.println("Book of this Serial No Already Exists.");
-	    return 0;
-	    }
-	    return 1;
-	    }
+	    	 if (b1.uniqueNo == b2.uniqueNo) {
+	    		 // Print 
+	    		 System.out.println("Unique Identifying Number Error");
+	    		 return 0;
+	    	 	}
+	    	 	return 1;
+	    		}
+	    //adds materials to library
+	    //theoretically we could store 50 of the same item
 	    public void addMaterial(material b) throws Exception {
 	        for (int i = 0; i < count; i++) {
-	            if (this.compareBookObjects(b, this.materialArray[i])
+	            if (this.compareMaterialObjects(b, this.materialArray[i])
 	                == 0)
 	                return;
 	        }
@@ -44,8 +43,7 @@ public class materialArray {
 	            count++;
 	        }
 	        else {
-	            System.out.println(
-	                "No Space to Add More Books.");
+	            System.out.println("No Space to Add Materials.");
 	    }
 	    } 
 	    // To create menu
@@ -63,26 +61,28 @@ public class materialArray {
 	    }
 	    // To search the library
 	    public int isAvailable(int uniqueNo) throws Exception {
-	 
+	    	//searches array
 	        for (int i = 0; i < count; i++) {
+	        //checks if material is available
 	            if (uniqueNo == materialArray[i].uniqueNo) {
+	            	//if it is available
 	                if (materialArray[i].availablity = true) {
-	                    System.out.println(
-	                        "Book is Available.");
+	                    System.out.println("Material is Available.");
 	                    return i;
 	                }
-	                System.out.println("Book is Unavailable");
+	                //if not available
+	                System.out.println("Material is Unavailable");
 	                return -1;
 	            }
 	        }
 	 
-	        System.out.println("No Book of Serial Number "
+	        System.out.println("Unique Identifying Number "
 	                           + " Available in Library.");
 	        return -1;
 	    }
-	    // To remove the book from the library
+	    // To check out book
 	    public material checkOutMaterial() throws Exception {
-	        System.out.println("Enter Unique Number of Book to Check Out.");
+	        System.out.println("Enter Unique Identifying Number to Check Out.");
 	        int uniqueNo = scan.nextInt();
 	        int bookIndex = isAvailable(uniqueNo);
 	        if (bookIndex != -1) {
@@ -91,9 +91,11 @@ public class materialArray {
 	        }
 	        return null;
 	    }
-	    // To return materials Library
+	    // To return materials
 	    public void checkInMaterial(material b) throws Exception {
+	    	//searches array
 	        for (int i = 0; i < count; i++) {
+	        //sets availability to true
 	            if (b.equals(materialArray[i])) {
 	            	materialArray[i].availablity = true;
 	                return;
