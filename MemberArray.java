@@ -1,3 +1,4 @@
+//Andre Leos (aleos5@toromail.csudh.edu)
 // CSC 123 Final Project
 import java.util.Scanner;
 public class memberArray {

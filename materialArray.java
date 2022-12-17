@@ -1,3 +1,4 @@
+//Andre Leos (aleos5@toromail.csudh.edu)
 // Import scanner
 import java.util.Scanner;
 //class
