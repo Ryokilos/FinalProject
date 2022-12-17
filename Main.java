@@ -1,24 +1,21 @@
 import java.util.Scanner;
 class Main {
   public static void main(String[] args) throws Exception {
-	  //member s = new member();
-	  //material a = new material();	 
 	  // Class
-	  // Creating object of Scanner class
-	  // to take input from user
+	  // Create scanner
 	  Scanner scan = new Scanner(System.in);
 	  // Displaying menu
 	  System.out.println("Libary Menu");
-	  // Creating object of material class
+	  // Create object of material class
 	  materialArray ob = new materialArray();
-	  // Creating object of students class
+	  // Create object of member class
 	  memberArray obMember = new memberArray();
 	  int choice;
 	  // menu
 	  do {
 		  ob.menu();
 	      choice = scan.nextInt();
-	      // Switch case
+	      // Switch case start
 	      switch (choice) {
 	      // Case 1, this adds a new member
           case 1:
@@ -42,25 +39,28 @@ class Main {
           case 5:
           ob.showAllMaterials();
           break;
-	      //case ?, this lets you search books using Unique Identifying number
-	      //ob.searchByuniqueNo();
-          //break;
           // Case 6, this displays all loans within the system
 	      case 6:
-	      //ob.showAllLoans();
+	      //obMember.showAllLoans();
 	      break;
-	      // Case 7 this shows all the members in the member array
+	      // Case 7 this checks for a member in the member array
           case 7:
           obMember.isMember();
           break; 
-	      // if above cases dont match
+	      //case ?, this lets you search books using Unique Identifying number
+	      //ob.searchByuniqueNo();
+          //break;
+	      //case ?, this displays all members
+	      //ob.showAllMembers();
+          //break;
+	      // if above cases don't match
 	      default:
 	      // Print statement
 	      System.out.println("...");
-	        }
-	        }
-	        // 8 is to exit system
-	        while (choice != 8);
+	       }
+	       }
+	       // 8 is to exit system
+	       while (choice != 8);
       System.out.println("Exiting System");
 	  }
 }
