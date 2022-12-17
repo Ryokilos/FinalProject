@@ -1,15 +1,11 @@
-/// CSC 123 Final Project
-
+// CSC 123 Final Project
 import java.util.Scanner;
 public class memberArray {
 	
 	// Creating objects of Scanner and students class
     Scanner input = new Scanner(System.in);
 	member theMembers[] = new member[50];
-	
 	public static int count = 0;
-	
-
     public void addMember(member s) throws Exception {
         for (int i = 0; i < count; i++) {
  
@@ -40,8 +36,7 @@ public class memberArray {
             System.out.println(theMembers[i].firstName +"\t\t" + theMembers[i].lastName +"\t\t" + theMembers[i].birthDate + "\t\t" + theMembers[i].cityName + "\t\t" + theMembers[i].zipCode + "\t\t"+ theMembers[i].regNum); if (theMembers[i].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[i].firstName + "\n" + theMembers[i].firstNameGuardian +"\t\t" + theMembers[i].lastNameGuardian +"\t\t" + theMembers[i].birthDateGuardian + "\t\t" + theMembers[i].cityNameGuardian + "\t\t" + theMembers[i].zipCodeGuardian);
         }
     }
-    
-    
+
     // Method 2
     // To check for the Member
     public int isMember() throws Exception {
@@ -63,8 +58,7 @@ public class memberArray {
         System.out.println("Get Registered First.");
         return -1;
     }
-	
-	
+		
 	// Method 3
     // To remove Material
     public void checkOutMaterial(materialArray material) throws Exception {
@@ -96,9 +90,6 @@ public class memberArray {
             System.out.println("Material is not Available.");
         }
     }
-	
-	
-	
 	
 	// Method 4
     // To add the Book / Magazines / DVD's
@@ -132,6 +123,5 @@ public class memberArray {
  
             System.out.println("Material of Serial No " + uniqueNo + "Not Found");
         }
-    }
-	
+    }	
 }
