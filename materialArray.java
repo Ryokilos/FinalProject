@@ -11,7 +11,7 @@ public class materialArray {
 	    public void showAllMaterials() {
 	     System.out.println("Showing all Materials\n");
 	     for (int i = 0; i < count; i++) {
-	     System.out.println("Unique Identifier: " + materialArray[i].uniqueNo + "\t | Title: " + materialArray[i].title + "\t | Location Identifier: " + materialArray[i].locName + "." + materialArray[i].locNo); 
+	     System.out.println("\nUnique Identifier: " + materialArray[i].uniqueNo + "\t | Title: " + materialArray[i].title + "\t | Location Identifier: " + materialArray[i].locName + "." + materialArray[i].locNo); 
 	     if (materialArray[i].authorName != null && materialArray[i].locName == 66 ||materialArray[i].locName == 98) System.out.print("| Author: " + materialArray[i].authorName + "\t | ISBN: " + materialArray[i].isbn); 
 	     if (materialArray[i].issueNumber != null && materialArray[i].locName == 77 ||materialArray[i].locName == 109) System.out.print("| Magzine Issue:" + materialArray[i].issueNumber);
 	     System.out.print("| Released: " + materialArray[i].released + "\t | Length: " + materialArray[i].length + "| Suitable for Children?: " + materialArray[i].r18 + "\t | Available?: " + materialArray[i].availablity);
