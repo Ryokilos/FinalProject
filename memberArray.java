@@ -144,9 +144,9 @@ public class memberArray {
     public void showAllLoans() throws Exception {
             for (int memberIndex = 0; memberIndex < count; memberIndex++){
                 member s = theMembers[memberIndex];
-                System.out.println(theMembers[memberIndex].firstName +"\t\t" + theMembers[memberIndex].lastName + "\t ID Number: "+ theMembers[memberIndex].regNum +"Is an adult:"+ theMembers[memberIndex].isAdult); if (theMembers[memberIndex].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[memberIndex].firstName + "\n" + theMembers[memberIndex].firstNameGuardian +"\t\t" + theMembers[memberIndex].lastNameGuardian);
+                System.out.println("First Name: " + theMembers[memberIndex].firstName +"\t Last Name: " + theMembers[memberIndex].lastName + "\t ID Number: "+ theMembers[memberIndex].regNum +"\t Is an adult:"+ theMembers[memberIndex].isAdult); if (theMembers[memberIndex].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[memberIndex].firstName + "\n Guardian First Name: " + theMembers[memberIndex].firstNameGuardian +"\t Guardian Last Name: " + theMembers[memberIndex].lastNameGuardian);
                 for (int i = 0; i < s.materialCount; i++){     
-                    System.out.println("Unique Identifying Number:" + s.loanedMaterial[i].uniqueNo + "\t\t Title: " + s.loanedMaterial[i].title + "\t\t Author Name: " + s.loanedMaterial[i].authorName + "Days to return item:"+ s.loanedMaterial[i].loanTime);
+                    System.out.println("Unique Identifying Number:" + s.loanedMaterial[i].uniqueNo + "\t\t Title: " + s.loanedMaterial[i].title + "\t\t Author Name: " + s.loanedMaterial[i].authorName + "\t Days to return item: "+ s.loanedMaterial[i].loanTime);
             }
             // Printing credentials corresponding to member
     }
