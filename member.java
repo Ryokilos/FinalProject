@@ -2,6 +2,7 @@
 // Byron Lacanal Jr. (blacanal1@toromail.csudh.edu)
 //Jonathan Rios, (jrios85@toromail.csudh.edu)
 // CSC 123 Final Project
+
 import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;

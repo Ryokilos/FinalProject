@@ -4,11 +4,12 @@
 // CSC 123 Final Project
 
 import java.util.Scanner;
+import java.util.Calendar;
 public class memberArray {
 	
 	// Creating objects of Scanner and students class
     Scanner input = new Scanner(System.in);
-	member theMembers[] = new member[50];
+	member theMembers[] = new member[99999];
 	
 	public static int count = 0;
 	
@@ -82,7 +83,7 @@ public class memberArray {
             System.out.println("Checking out");
             if (b != null){
  
-                if (theMembers[memberIndex].materialCount<= 3){
+                if (theMembers[memberIndex].materialCount<= 5){
  
                     System.out.println("Adding book");
                     theMembers[memberIndex].loanedMaterial[theMembers[memberIndex].materialCount]= b;
@@ -120,7 +121,7 @@ public class memberArray {
             }
  
             // Display message only
-            System.out.println("Enter Serial Number of Material to be Checked In:");
+            System.out.println("Enter Unique Identifying Number of Material to be Checked In:");
  
             int uniqueNo = input.nextInt();
  
@@ -136,5 +137,19 @@ public class memberArray {
             System.out.println("Material of Serial No " + uniqueNo + "Not Found");
         }
     }
+    
+    
+    
+    
+    public void showAllLoans() throws Exception {
+            for (int memberIndex = 0; memberIndex < count; memberIndex++){
+                member s = theMembers[memberIndex];
+                System.out.println(theMembers[memberIndex].firstName +"\t\t" + theMembers[memberIndex].lastName + "\t ID Number: "+ theMembers[memberIndex].regNum +"Is an adult:"+ theMembers[memberIndex].isAdult); if (theMembers[memberIndex].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[memberIndex].firstName + "\n" + theMembers[memberIndex].firstNameGuardian +"\t\t" + theMembers[memberIndex].lastNameGuardian);
+                for (int i = 0; i < s.materialCount; i++){     
+                    System.out.println("Unique Identifying Number:" + s.loanedMaterial[i].uniqueNo + "\t\t Title: " + s.loanedMaterial[i].title + "\t\t Author Name: " + s.loanedMaterial[i].authorName + "Days to return item:"+ s.loanedMaterial[i].loanTime);
+            }
+            // Printing credentials corresponding to member
+    }
 	
+}
 }

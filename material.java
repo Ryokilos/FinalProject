@@ -61,11 +61,11 @@ public material () throws Exception {
 		  this.authorName = null;
 		  this.isbn       = null;
 		}
-	System.out.println("Enter length of media, for books and magazines put page length, for DVDs put video length in minutes:");
+	System.out.println("Enter media length, for books/magazines put page length, for DVDs put video length in minutes:");
 	this.length = scan.nextLine();
-	System.out.println("Enter release year of media:");
+	System.out.println("Enter the release year of media, put month and year for magazines:");
 	this.released = scan.nextLine();
-	System.out.println("Enter value to replace the items if damaged:");
+	System.out.println("Enter value to replace the items if damaged: $");
 	this.replaceValue = scan.nextInt();
 	System.out.println(scan.nextLine());
 	if (locName == 77 ||locName == 109) {

@@ -2,6 +2,7 @@
 // Byron Lacanal Jr. (blacanal1@toromail.csudh.edu)
 //Jonathan Rios, (jrios85@toromail.csudh.edu)
 // CSC 123 Final Project
+
 // Import scanner
 import java.util.Scanner;
 //class
@@ -9,7 +10,7 @@ public class materialArray {
 	    // Class data members
 	    material materialArray[] = new material[99999999];
 	    public static int count;
-	    Scanner scan = new Scanner(System.in);
+	    Scanner scan = new Scanner(System.in);	    
 	    // To display all books
 	    public void showAllMaterials() {
 	     System.out.println("Showing all Materials\n");
@@ -75,13 +76,12 @@ public class materialArray {
 	                    return i;
 	                }
 	                //if not available
-	                System.out.println("Material is Unavailable");
+	                System.out.println("Material is on loan");
 	                return -1;
-	            }
+	            } else { System.out.println("Material does not exist.");
 	        }
-	 
-	        System.out.println("Unique Identifying Number "
-	                           + " Available in Library.");
+	        }
+	        System.out.println("Unique Identifying Number: " + uniqueNo +" Available in Library.");
 	        return -1;
 	    }
 	    // To check out book
