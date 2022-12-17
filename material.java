@@ -1,4 +1,6 @@
-//Andre Leos (aleos5@toromail.csudh.edu)
+// Andre Leos (aleos5@toromail.csudh.edu)
+// Byron Lacanal Jr. (blacanal1@toromail.csudh.edu)
+// CSC 123 Final Project
 import java.util.Scanner;
 // Class
 public class material {
