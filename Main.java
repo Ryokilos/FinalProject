@@ -32,11 +32,11 @@ class Main {
 	      break;
 		  // Case 3, this checks out materials
 	      case 3:
-          obMember.checkInMaterial(ob);
+          obMember.checkOutMaterial(ob);
           break;
           // Case 4 this returns materials
           case 4:
-          obMember.checkOutMaterial(ob);
+          obMember.checkInMaterial(ob);
           break;
           // Case 5 this shows all books within material array
           case 5:
@@ -64,3 +64,4 @@ class Main {
       System.out.println("Exiting System");
 	  }
 }
+	
