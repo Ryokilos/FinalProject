@@ -1,7 +1,7 @@
-// CSC 123 Final Project
+/// CSC 123 Final Project
 
 import java.util.Scanner;
-public class MemberArray {
+public class memberArray {
 	
 	// Creating objects of Scanner and students class
     Scanner input = new Scanner(System.in);
@@ -9,52 +9,71 @@ public class MemberArray {
 	
 	public static int count = 0;
 	
-	
+
+    public void addMember(member s) throws Exception {
+        for (int i = 0; i < count; i++) {
+ 
+            if (s.regNum == theMembers[i].regNum) {
+ 
+                // Print statement
+                System.out.println(
+                    "Student of Reg Num " + s.regNum
+                    + " is Already Registered.");
+ 
+                return;
+            }
+        }
+ 
+        if (count <= 50) {
+            theMembers[count] = s;
+            count++;
+        }
+    }
 	// Method 1
     // Displaying all students
-    public void showAllMembers(){
+    public void showAllMembers() throws Exception {
         // Printing Member Name and corresponding Information
-        System.out.println("First Name\t\tLast Name\t\tBirth Date\t\tCity\t\tZip Code\t\tRegistration Number");
+        System.out.println("First:\t\t\tLast:\t\t\tBoD:\t\t\tCity:\t\t\tZip:\t\tRegistration Number:");
 		
         for (int i = 0; i < count; i++){
  
-            System.out.println(theMembers[i].firstName +"\t\t" + theMembers[i].lastName +"\t\t" + theMembers[i].birthDate + "\t\t" + theMembers[i].cityName + "\t\t" + theMembers[i].zipCode + "\t\t"+ theMembers[i].regNum);
+            System.out.println(theMembers[i].firstName +"\t\t" + theMembers[i].lastName +"\t\t" + theMembers[i].birthDate + "\t\t" + theMembers[i].cityName + "\t\t" + theMembers[i].zipCode + "\t\t"+ theMembers[i].regNum); if (theMembers[i].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[i].firstName + "\n" + theMembers[i].firstNameGuardian +"\t\t" + theMembers[i].lastNameGuardian +"\t\t" + theMembers[i].birthDateGuardian + "\t\t" + theMembers[i].cityNameGuardian + "\t\t" + theMembers[i].zipCodeGuardian);
         }
     }
     
     
     // Method 2
     // To check for the Member
-    public int isMember(){
+    public int isMember() throws Exception {
         // Display message only
         System.out.println("Enter Registration Number:");
  
-        String regNum = input.nextLine();
+        int regNum = input.nextInt();
  
         for (int i = 0; i < count; i++) {
  
-            if (theMembers[i].regNum.equalsIgnoreCase(regNum)){
-                return i;
+            if (theMembers[i].regNum == regNum){
+            	System.out.println(theMembers[i].firstName +"\t\t" + theMembers[i].lastName +"\t\t" + theMembers[i].birthDate + "\t\t" + theMembers[i].cityName + "\t\t" + theMembers[i].zipCode + "\t\t"+ theMembers[i].regNum); if (theMembers[i].isAdult == false) System.out.println("Guardian Info for: "+ theMembers[i].firstName + "\n" + theMembers[i].firstNameGuardian +"\t\t" + theMembers[i].lastNameGuardian +"\t\t" + theMembers[i].birthDateGuardian + "\t\t" + theMembers[i].cityNameGuardian + "\t\t" + theMembers[i].zipCodeGuardian);
+            	return i;
             }
         }
  
         // Print statements
         System.out.println("Member is not Registered.");
         System.out.println("Get Registered First.");
- 
         return -1;
     }
 	
 	
 	// Method 3
     // To remove Material
-    public void checkOutMaterial(materialArray material){
+    public void checkOutMaterial(materialArray material) throws Exception {
         int memberIndex = this.isMember();
  
         if (memberIndex != -1){
             System.out.println("Checking out");
  
-            material.showAllMaterial();
+            material.showAllMaterials();
             material b = material.checkOutMaterial();
  
             System.out.println("Checking out");
@@ -63,7 +82,7 @@ public class MemberArray {
                 if (theMembers[memberIndex].materialCount<= 3){
  
                     System.out.println("Adding book");
-                    theMembers[memberIndex].borrowedMaterial[theMembers[memberIndex].materialCount]= b;
+                    theMembers[memberIndex].loanedMaterial[theMembers[memberIndex].materialCount]= b;
                     theMembers[memberIndex].materialCount++;
  
                     return;
@@ -83,7 +102,7 @@ public class MemberArray {
 	
 	// Method 4
     // To add the Book / Magazines / DVD's
-    public void checkInMaterial(materialArray material){
+    public void checkInMaterial(materialArray material) throws Exception {
         int memberIndex = this.isMember();
         if (memberIndex != -1){
  
@@ -94,24 +113,24 @@ public class MemberArray {
  
             for (int i = 0; i < s.materialCount; i++){
  
-                System.out.println(s.borrowedMaterial[i].sNo + "\t\t\t" + s.borrowedMaterial[i].bookName + "\t\t\t" + s.borrowedMaterial[i].authorName);
+                System.out.println(s.loanedMaterial[i].uniqueNo + "\t\t\t" + s.loanedMaterial[i].title + "\t\t\t" + s.loanedMaterial[i].authorName);
             }
  
             // Display message only
             System.out.println("Enter Serial Number of Material to be Checked In:");
  
-            int sNo = input.nextInt();
+            int uniqueNo = input.nextInt();
  
             for (int i = 0; i < s.materialCount; i++){
-                if (sNo == s.borrowedMaterial[i].sNo){
-                    material.checkInMaterial(s.borrowedMaterial[i]);
-                    s.borrowedMaterial[i] = null;
+                if (uniqueNo == s.loanedMaterial[i].uniqueNo){
+                    material.checkInMaterial(s.loanedMaterial[i]);
+                    s.loanedMaterial[i] = null;
  
                     return;
                 }
             }
  
-            System.out.println("Material of Serial No " + sNo + "Not Found");
+            System.out.println("Material of Serial No " + uniqueNo + "Not Found");
         }
     }
 	
